@@ -105,7 +105,16 @@ contains(names, 'Colt', function(result){
 
 
     //Code Here for uniq
-
+var uniq = function (arr, callback) {
+    var newArr = [];
+    for ( var i = 0; i < arr.length; i++) {
+        if (newArr.indexOf(arr[i]) === -1) {
+            newArr.push(arr[i]);
+        }
+    }
+    return callback(newArr);
+}
+        
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
@@ -121,6 +130,11 @@ uniq(names, function(uniqArr){
 
 
     //Code Here for each
+var each = function (arr, callback) {
+    for (var i = 0; i < arr.length; i++) {
+        return callback(i, arr[i]);
+    }
+};
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 each(names, function(item, indice){
@@ -138,7 +152,13 @@ each(names, function(item, indice){
 
 
  //code here for getUserById
-
+var getUserById = function (arr, str, callback) {
+    for( var i = 0; i < arr.length; i++) {
+        if(arr[i].id === str) {
+            return callback(arr[i]);
+        }
+    }
+};
 var users = [
   {
     id: '12d',
